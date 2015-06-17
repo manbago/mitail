@@ -16,7 +16,7 @@ from wagtail.wagtailadmin.edit_handlers import (FieldPanel,
                                                 PageChooserPanel)
 
 
-# Blog Page 2
+# Blog Page 3
 class BlogPage(Page):
     main_image = models.ForeignKey(
         'wagtailimages.Image',
