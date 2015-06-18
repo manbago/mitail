@@ -15,6 +15,8 @@ from wagtail.wagtailadmin.edit_handlers import (FieldPanel,
                                                 MultiFieldPanel,
                                                 PageChooserPanel)
 
+from snippets.models import *
+from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 
 # Blog Page 3
 class BlogPage(Page):
@@ -33,13 +35,23 @@ class BlogPage(Page):
         index.SearchField('intro'),
         index.SearchField('body'),
     )
+    advert = models.ForeignKey(
+    'snippets.Advert',
+    null=True,
+    blank=True,
+    on_delete=models.SET_NULL,
+    related_name='+'
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
         ImageChooserPanel('main_image'),
         FieldPanel('intro'),
         FieldPanel('body'),
+        SnippetChooserPanel('advert', Advert),
+
     ]
+
 
 class LinkFields(models.Model):
     link_external = models.URLField("External link", blank=True)
@@ -64,6 +76,9 @@ class LinkFields(models.Model):
 
     class Meta:
         abstract = True
+
+
+
 
 
 # Related links

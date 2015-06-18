@@ -6,6 +6,17 @@
 
 {% block content %}
     <h1>{{ self.title }}</h1>
-
     <div class="intro">{{ self.intro }}</div>
+    {% if self.related_links.all %}
+        <ul>
+            {% for item in self.related_links.all %}
+                <li><a href="{{ item.link }}">{{ item.title }}{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
+
+
+    
+
+
