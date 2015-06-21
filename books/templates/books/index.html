@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load static core_tags wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}templage-blogpage{% endblock %}
+
+
+{% block content %}
+	
+    <h1>{{ self.first_name }}</h1>
+
+{% endblock %}

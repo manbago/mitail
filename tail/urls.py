@@ -9,7 +9,7 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailsearch import urls as wagtailsearch_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
-
+from books import urls as books_urls
 
 urlpatterns = patterns('',
     url(r'^django-admin/', include(admin.site.urls)),
@@ -19,7 +19,9 @@ urlpatterns = patterns('',
     url(r'^documents/', include(wagtaildocs_urls)),
 
     url(r'', include(wagtail_urls)),
+    url(r'^books/', include('books.urls')),
 )
+
 
 
 if settings.DEBUG:

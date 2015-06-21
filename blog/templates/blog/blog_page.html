@@ -3,9 +3,15 @@
 {% load static core_tags wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}templage-blogpage{% endblock %}
+{% load staticfiles %}
+
+
 
 {% block content %}
+	
     <h1>{{ self.title }}</h1>
+    <h3>{{ self.date }}</h3>
+    <h3>{{ self.first_name }}</h3>
     <p class="meta">{{ self.date }}</p>
 
     {% if self.main_image %}
@@ -15,7 +21,7 @@
     <div class="intro">{{ self.intro }}</div>
 
     {{ self.body | richtext }}
-    {{ self.advert.text }}
-
+     <div>{{ self.advert.text }}</div>
+    {{ self.advert.url }}
 
 {% endblock %}
